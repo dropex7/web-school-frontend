@@ -1,0 +1,96 @@
+.terms-of-courses {
+  position: relative;
+  margin-top: 71px;
+}
+
+.background-relative {
+  position: relative;
+}
+
+.background-absolute {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 263px;
+  background: #F1F3F6;
+}
+
+.section-terms {
+  position: relative;
+  padding-top: 71px;
+}
+
+.h1-terms {
+  text-align: center;
+  font-size: 3em;
+  font-family: Roboto, sans-serif;
+}
+
+.section-cards {
+  margin-top: 10px;
+}
+
+.block-main-card {
+  position: relative;
+  margin: 0 auto;
+  width: 583px;
+  height: 441px;
+  background: linear-gradient(33.88deg, #FE6201 6.73%, #ED4B7C 96.13%);
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.3);
+  border-radius: 24px;
+}
+
+.h2-card-title {
+  padding-top: 32px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.h2-card-title a {
+  color: white;
+  text-decoration: none; /* no underline */
+}
+
+.p-card-description {
+  margin: auto 110px;
+  padding-top: 32px;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+}
+
+.p-terms {
+  margin: auto 110px;
+  margin-top: 20px;
+  text-align: left;
+  color: white;
+}
+
+.button-wrapper {
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.button-vector {
+  margin: 0 auto;
+  margin-top: 15px;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  color: white;
+  border: none;
+}
+
+.button-vector:focus {
+  outline: none;
+}
+
+.button-vector:hover {
+  background-color: #ccc;
+}

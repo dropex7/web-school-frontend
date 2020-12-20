@@ -1,0 +1,48 @@
+.footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 100px;
+    padding: 108px 50px 80px 180px;
+    background: #F1F3F6;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.footer_sections {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer_contacts {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer_media {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #000000;
+    margin-bottom: 13px;
+}
+
+.footer h2 {
+    margin: 0;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.footer span {
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+    color: #7D7D7D;
+}
+
+.footer img {
+    margin-right: 14px;
+}

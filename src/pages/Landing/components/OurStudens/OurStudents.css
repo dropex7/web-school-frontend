@@ -1,0 +1,74 @@
+.background-relative {
+  position: relative;
+}
+
+.background-absolute-2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 705px;
+  height: 209px;
+  background: #F1F3F6;
+  border-radius: 0px 12px 0px 0px;
+  margin-top: 175px;
+}
+
+.background-absolute-3 {
+  position: absolute;
+  width: 770px;
+  height: 242px;
+  left: 45px;
+  top: 242px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 28px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.section-our-students {
+  display: flex;
+}
+
+.div-our-students {
+  position: relative;
+  padding-top: 231px;
+  padding-left: 135px;
+}
+
+.h2-our-students {
+  margin-top: 0;
+  font-size: 42px;
+  font-family: Roboto, sans-serif;
+  text-align: left;
+  color: black;
+}
+
+.div-photo {
+  position: absolute;
+  border-radius: 50px;
+  left: 314px;
+  top: -55px;
+}
+
+.p-student {
+  margin: auto 123px;
+  padding-top: 123px;
+  text-align: center;
+  color: black;
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.upper-q {
+  position: absolute;
+  left: 89px;
+  top: 86px;
+}
+
+.lower-q {
+  position: absolute;
+  left: 689px;
+  top: 178px
+}
