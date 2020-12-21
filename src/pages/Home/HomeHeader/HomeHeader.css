@@ -30,6 +30,9 @@
   text-transform: capitalize;
   color: #e5e5e5;
 }
+.home_header_btn:focus {
+  outline: none;
+}
 .home_header_info_icon_telegram {
   width: 151.58px;
   height: 84.36px;

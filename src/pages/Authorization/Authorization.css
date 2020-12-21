@@ -1,89 +1,91 @@
 .authorization {
-    display: flex;
-    height: 90vh;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  height: 90vh;
+  justify-content: center;
+  align-items: center;
 }
 
 .authorization_window {
-    width: 500px;
-    height: 650px;
-    border-radius: 3%;
-    background-color: #3D2B99;
-    position: relative;
-    box-shadow: 5px -5px 20px 0px #68A7D1, -5px 10px 21px -2px #A49FA5;
+  width: 500px;
+  height: 650px;
+  border-radius: 3%;
+  background-color: #3d2b99;
+  position: relative;
+  box-shadow: 5px -5px 20px 0px #68a7d1, -5px 10px 21px -2px #a49fa5;
 }
 
 .authorization_form {
-    display: flex;
-    flex-direction: column;
-    height: 500px;
-    background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  background-color: #ffffff;
 }
 
 .authorization_window_header {
-    height: 125px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFFFFF;
-    font-size: 30px;
+  height: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 30px;
 }
 
 .authorization_form_login {
-    margin: 53px 55px 16px 55px;
-    padding: 20px 0px 20px 35px;
-    border-radius: 20px;
-    border-color: transparent;
-    background-color: #EBEBEB;
-    font-size: 20px;
+  margin: 53px 55px 16px 55px;
+  padding: 20px 0px 20px 35px;
+  border-radius: 20px;
+  border-color: transparent;
+  background-color: #ebebeb;
+  font-size: 20px;
 }
 
 .authorization_form_password {
-    margin: 0px 55px 60px 55px;
-    padding: 20px 0px 20px 35px;
-    border-radius: 20px;
-    border-color: transparent;
-    background-color: #EBEBEB;
-    font-size: 20px;
+  margin: 0px 55px 60px 55px;
+  padding: 20px 0px 20px 35px;
+  border-radius: 20px;
+  border-color: transparent;
+  background-color: #ebebeb;
+  font-size: 20px;
 }
 
 .authorization_form_btn {
-    margin: 0px 55px 60px 55px;
-    padding: 20px 0px;
-    border-radius: 20px;
-    background-color: #3D2B99;
-    border-color: transparent;
-    font-size: 20px;
-    color: #FFFFFF;
+  margin: 0px 55px 60px 55px;
+  padding: 20px 0px;
+  border-radius: 20px;
+  background-color: #3d2b99;
+  border-color: transparent;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
 }
 
 .authorization_form input::placeholder {
-    color: black;
+  color: black;
 }
 
 .authorization_form input:focus {
-    outline: none;
+  outline: none;
 }
 
 .authorization_form button:focus {
-    outline: none;
+  outline: none;
 }
 
 .authorization_form button:hover {
-    box-shadow: 5px -5px 20px 0px #68A7D1, -5px 10px 21px -2px #A49FA5;
+  box-shadow: 5px -5px 20px 0px #68a7d1, -5px 10px 21px -2px #a49fa5;
 }
 
 .authorization_form_register {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
 }
 
 .authorization_form_register a {
-    color: #3D2B99;
-    margin-top: 20px;
-    margin-left: 18px;
-    text-decoration: none;
+  color: #3d2b99;
+  margin-top: 20px;
+  margin-left: 18px;
+  text-decoration: none;
 }

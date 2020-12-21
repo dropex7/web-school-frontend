@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import telegramIcon from "../../../assets/icons/telegram.svg";
 import rabbitIcon from "../../../assets/icons/rabbit.png";
 import "./HomeHeader.css";
@@ -6,7 +7,11 @@ import "./HomeHeader.css";
 export const HomeHeader = () => {
   return (
     <header className="home_header">
-      <button className="home_header_btn">Выйти</button>
+      <div>
+        <Link to="/">
+          <button className="home_header_btn">Выйти</button>
+        </Link>
+      </div>
       <div className="home_header_info">
         <img
           className="home_header_info_icon"
