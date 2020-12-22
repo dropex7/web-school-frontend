@@ -1,8 +1,37 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Authorization.css";
+import React, { useState } from "react"
+import { Redirect } from "react-router-dom"
+import { message } from 'antd'
+import "./Authorization.css"
 
 export default function Authorization() {
+  const [loading, setLoading] = useState(false)
+  const [login, setLogin] = useState("")
+  const [password, setPassword] = useState("")
+  const loginHandler = async () => {
+    try {
+      if (login && password) {
+        setLoading(true)
+        let body = { login, password }
+        body = JSON.stringify(body)
+        const method = "POST"
+        const headers = { contentType: 'application/json' }
+        headers['Content-Type'] = 'application/json'
+        const response = await fetch('/auth/login', { method, body, headers })
+        const data = await response.json()
+        if (!response.ok) {
+          throw new Error(data.message)
+        }
+        setLoading(false)
+        return (
+          <Redirect to="/home" />
+        )
+      } else {
+        message.warning('Enter login and password')
+      }
+    } catch (error) {
+      message.error(error.message)
+    }
+  }
   return (
     <div className="authorization">
       <div className="authorization_window">
@@ -11,19 +40,20 @@ export default function Authorization() {
         </div>
         <form className="authorization_form" action="">
           <input
+            onInput={(e) => setLogin(e.target.value)}
             className="authorization_form_login"
             type="text"
             placeholder="Логин"
           />
           <input
+            onInput={(e) => setPassword(e.target.value)}
             className="authorization_form_password"
             type="password"
             placeholder="Пароль"
           />
-          <Link to="/home" className="authorization_form_btn">
+          <button onClick={loginHandler} className="authorization_form_btn">
             Войти в систему
-          </Link>
-
+          </button>
           <div className="authorization_form_register">
             <div>
               <p>
