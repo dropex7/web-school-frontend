@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { Redirect } from "react-router-dom"
 import { message } from 'antd'
 import "./Authorization.css"
 
@@ -8,28 +7,27 @@ export default function Authorization() {
   const [login, setLogin] = useState("")
   const [password, setPassword] = useState("")
   const loginHandler = async () => {
-    try {
-      if (login && password) {
-        setLoading(true)
-        let body = { login, password }
-        body = JSON.stringify(body)
-        const method = "POST"
-        const headers = { contentType: 'application/json' }
-        headers['Content-Type'] = 'application/json'
-        const response = await fetch('/auth/login', { method, body, headers })
-        const data = await response.json()
-        if (!response.ok) {
-          throw new Error(data.message)
-        }
-        setLoading(false)
-        return (
-          <Redirect to="/home" />
-        )
-      } else {
-        message.warning('Enter login and password')
-      }
-    } catch (error) {
-      message.error(error.message)
+    if (login && password) {
+      setLoading(true)
+      let body = { login, password }
+      body = JSON.stringify(body)
+      const method = "POST"
+      const headers = { contentType: 'application/json' }
+      headers['Content-Type'] = 'application/json'
+      fetch('http://localhost:5000/auth/login', { method, body, headers })
+        .then(async (response) => {
+          const data = await response.json()
+          if (!response.ok) {
+            throw new Error(data.message)
+          }
+          setLoading(false)
+          window.location.replace('http://localhost:3000/home')
+        })
+        .catch((error) => {
+          message.error(error.message)
+        })
+    } else {
+      message.warning('Enter login and password')
     }
   }
   return (
@@ -51,7 +49,7 @@ export default function Authorization() {
             type="password"
             placeholder="Пароль"
           />
-          <button onClick={loginHandler} className="authorization_form_btn">
+          <button onClick={loginHandler} type='button' className="authorization_form_btn">
             Войти в систему
           </button>
           <div className="authorization_form_register">
