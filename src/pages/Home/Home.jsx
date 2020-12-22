@@ -10,17 +10,19 @@ export const Home = () => {
     const load = async () => {
       const tempData = await getCourses();
       setCourses(tempData);
+      return 0;
     };
     load();
   }, []);
   if (!courses) {
     return <div>Loading...</div>;
-  } else
+  } else {
     return (
       <div>
         <HomeHeader />
-        <HomeContent />
+        <HomeContent courses={courses.courses} />
         <HomeFooter />
       </div>
     );
+  }
 };

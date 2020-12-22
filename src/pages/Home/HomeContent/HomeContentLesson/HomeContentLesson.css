@@ -1,0 +1,70 @@
+.home_content_lesson {
+  background-color: #ececec;
+}
+.home_content_lesson_btn {
+  width: 180px;
+  height: 70px;
+  background: #506ac7;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 0.01em;
+  color: #e5e5e5;
+  margin: 1rem 1rem;
+}
+.home_content_lesson_video {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home_content_lesson_video_prevnext {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 50px;
+}
+
+.home_content_lesson_form {
+  width: 660px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.home_content_lesson_form_questions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+.home_content_lesson_form_questions_btn {
+  width: 150px;
+  height: 40px;
+  background: #506ac7;
+  box-shadow: 0px 4px 4px #506ac7;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  text-transform: capitalize;
+  color: #e5e5e5;
+  margin: 1rem 0;
+}
+.home_content_lesson_form_nextprev:focus {
+  outline: none;
+}
+.home_content_lesson_form_nextprev {
+  border: none;
+}
+.home_content_lesson_form_nextprev:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.home_content_lesson_form_ans {
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+}
