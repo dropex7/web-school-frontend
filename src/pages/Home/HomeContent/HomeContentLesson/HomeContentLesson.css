@@ -1,6 +1,22 @@
 .home_content_lesson {
   background-color: #ececec;
 }
+
+.home_content_circle {
+  position: absolute;
+  margin-top: 410px;
+}
+
+.home_content_like {
+  position: absolute;
+  margin-top: 455px;
+}
+
+.home_content_dislike {
+  position: absolute;
+  margin-top: 480px;
+}
+
 .home_content_lesson_btn {
   width: 180px;
   height: 70px;
@@ -54,6 +70,7 @@
   text-transform: capitalize;
   color: #e5e5e5;
   margin: 1rem 0;
+  margin-top: 50px;
 }
 .home_content_lesson_form_nextprev:focus {
   outline: none;

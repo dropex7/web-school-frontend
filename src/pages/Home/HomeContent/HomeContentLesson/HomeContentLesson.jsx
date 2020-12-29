@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import { getTasks } from "../../../../DataLoader";
 import nextIcon from "../../../../assets/icons/next.svg";
 import prevIcon from "../../../../assets/icons/prev.svg";
+import like from "../../../../assets/like.svg";
+import dislike from "../../../../assets/dislike.svg";
+import greenCircle from "../../../../assets/green_circle.svg";
+import redCircle from "../../../../assets/red_circle.svg";
+
 import "./HomeContentLesson.css";
 
 export const HomeContentLesson = (props) => {
@@ -9,6 +14,10 @@ export const HomeContentLesson = (props) => {
   const [right, setRight] = useState(null);
   const [userAns, setUserAns] = useState(null);
   const [disabled, setDisabled] = useState(false);
+  const [isRedCircleVisivle, setIsRedCircleVisivle] = useState(false);
+  const [isGreenCircleVisivle, setIsGreenCircleVisivle] = useState(false);
+  const [isLikeVisivle, setIsLikeVisivle] = useState(false);
+  const [isDislikeVisivle, setIsDislikeVisivle] = useState(false);
   const [i, setI] = useState(0);
   useEffect(() => {
     const load = async () => {
@@ -19,15 +28,6 @@ export const HomeContentLesson = (props) => {
     load();
   });
 
-  // const getQuestions = () => {
-  //   let tempArr = answers;
-  //   function shuffle(array) {
-  //     array.sort(() => Math.random() - 0.5);
-  //   }
-  //   shuffle(tempArr);
-  //   setAnswers(tempArr);
-  // };
-
   const handleChangeTest = (event) => {
     setUserAns(event.target.value);
   };
@@ -35,9 +35,19 @@ export const HomeContentLesson = (props) => {
   const onClickAns = () => {
     setDisabled(true);
     if (right === userAns) {
-      alert("Правильный ответ!");
+      setIsGreenCircleVisivle(true)
+      setIsLikeVisivle(true)
+      setTimeout(() => {
+        setIsGreenCircleVisivle(false)
+        setIsLikeVisivle(false)
+      }, 2000)
     } else {
-      alert("Неправильный ответ!");
+      setIsRedCircleVisivle(true)
+      setIsDislikeVisivle(true)
+      setTimeout(() => {
+        setIsRedCircleVisivle(false)
+        setIsDislikeVisivle(false)
+      }, 2000)
     }
   };
   if (!tasks) {
@@ -54,6 +64,10 @@ export const HomeContentLesson = (props) => {
             frameborder="0"
           ></iframe>
         </div>
+        <div className="home_content_circle" style={isGreenCircleVisivle ? { display: 'block' } : { display: 'none' }}><img src={greenCircle} /></div>
+        <div className="home_content_like" style={isLikeVisivle ? { display: 'block' } : { display: 'none' }}><img src={like} /></div>
+        <div className="home_content_circle" style={isRedCircleVisivle ? { display: 'block' } : { display: 'none' }}><img src={redCircle} /></div>
+        <div className="home_content_dislike" style={isDislikeVisivle ? { display: 'block' } : { display: 'none' }}><img src={dislike} /></div>
         <div className="home_content_lesson_form">
           <div>
             <button
