@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { HomeHeader } from "./HomeHeader/HomeHeader";
 import { HomeFooter } from "./HomeFooter/HomeFooter";
 import { HomeContent } from "./HomeContent/HomeContent";
@@ -14,11 +15,14 @@ export const Home = () => {
     };
     load();
   }, []);
+  let { id } = useParams();
+  
   if (!courses) {
     return <div>Loading...</div>;
   } else {
     return (
       <div>
+        {id}
         <HomeHeader />
         <HomeContent courses={courses.courses} />
         <HomeFooter />

@@ -8,6 +8,7 @@ const Router = () => (
   <BrowserRouter>
     <Switch>
       <Route path="/autorization" component={Autorization}></Route>
+      <Route path="/home/:id" children={Home}></Route>
       <Route path="/home" component={Home}></Route>
       <Route path="/" component={Landing}></Route>
     </Switch>

@@ -18,6 +18,7 @@ export const HomeContentLesson = (props) => {
   const [isGreenCircleVisivle, setIsGreenCircleVisivle] = useState(false);
   const [isLikeVisivle, setIsLikeVisivle] = useState(false);
   const [isDislikeVisivle, setIsDislikeVisivle] = useState(false);
+  const [nextAvailable, setNextAvailable] = useState(false);
   const [i, setI] = useState(0);
   useEffect(() => {
     const load = async () => {
@@ -34,20 +35,24 @@ export const HomeContentLesson = (props) => {
 
   const onClickAns = () => {
     setDisabled(true);
+    setNextAvailable(true);
     if (right === userAns) {
-      setIsGreenCircleVisivle(true)
-      setIsLikeVisivle(true)
+      setIsGreenCircleVisivle(true);
+      setIsLikeVisivle(true);
       setTimeout(() => {
-        setIsGreenCircleVisivle(false)
-        setIsLikeVisivle(false)
-      }, 2000)
+        setIsGreenCircleVisivle(false);
+        setIsLikeVisivle(false);
+      }, 2000);
     } else {
-      setIsRedCircleVisivle(true)
-      setIsDislikeVisivle(true)
+      setIsRedCircleVisivle(true);
+      setIsDislikeVisivle(true);
       setTimeout(() => {
-        setIsRedCircleVisivle(false)
-        setIsDislikeVisivle(false)
-      }, 2000)
+        setIsRedCircleVisivle(false);
+        setIsDislikeVisivle(false);
+      }, 2000);
+    }
+    if(i === tasks.length - 1){
+      //вызов функции родителя
     }
   };
   if (!tasks) {
@@ -64,24 +69,35 @@ export const HomeContentLesson = (props) => {
             frameborder="0"
           ></iframe>
         </div>
-        <div className="home_content_circle" style={isGreenCircleVisivle ? { display: 'block' } : { display: 'none' }}><img src={greenCircle} /></div>
-        <div className="home_content_like" style={isLikeVisivle ? { display: 'block' } : { display: 'none' }}><img src={like} /></div>
-        <div className="home_content_circle" style={isRedCircleVisivle ? { display: 'block' } : { display: 'none' }}><img src={redCircle} /></div>
-        <div className="home_content_dislike" style={isDislikeVisivle ? { display: 'block' } : { display: 'none' }}><img src={dislike} /></div>
+        <div
+          className="home_content_circle"
+          style={
+            isGreenCircleVisivle ? { display: "block" } : { display: "none" }
+          }
+        >
+          <img src={greenCircle} />
+        </div>
+        <div
+          className="home_content_like"
+          style={isLikeVisivle ? { display: "block" } : { display: "none" }}
+        >
+          <img src={like} />
+        </div>
+        <div
+          className="home_content_circle"
+          style={
+            isRedCircleVisivle ? { display: "block" } : { display: "none" }
+          }
+        >
+          <img src={redCircle} />
+        </div>
+        <div
+          className="home_content_dislike"
+          style={isDislikeVisivle ? { display: "block" } : { display: "none" }}
+        >
+          <img src={dislike} />
+        </div>
         <div className="home_content_lesson_form">
-          <div>
-            <button
-              className="home_content_lesson_form_nextprev"
-              onClick={() => {
-                if (i > 0) {
-                  setDisabled(false);
-                  setI(i - 1);
-                }
-              }}
-            >
-              <img src={prevIcon} alt="prev" />
-            </button>
-          </div>
           <div
             className="home_content_lesson_form_questions"
             onChange={handleChangeTest}
@@ -139,14 +155,20 @@ export const HomeContentLesson = (props) => {
             <button
               className="home_content_lesson_form_nextprev"
               onClick={() => {
-                if (i < tasks.length - 1) {
-                  setDisabled(false);
-                  setI(i + 1);
+                if (nextAvailable) {
+                  if (i < tasks.length - 1) {
+                    setNextAvailable(false);
+                    setDisabled(false);
+                    setI(i + 1);
+                  }
                 }
               }}
             >
               <img src={nextIcon} alt="next" />
             </button>
+            <span>
+              Question number {i + 1} of {tasks.length}
+            </span>
           </div>
         </div>
       </div>
