@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import telegramIcon from "../../../assets/icons/telegram.svg";
+import { Line } from "rc-progress";
 import rabbitIcon from "../../../assets/icons/rabbit.png";
 import "./HomeHeader.css";
 
-export const HomeHeader = () => {
+export const HomeHeader = ({ progress }) => {
   return (
     <header className="home_header">
       <div>
@@ -20,11 +20,10 @@ export const HomeHeader = () => {
         />
         <span className="home_header_info_name">Следуй за белым кроликом</span>
       </div>
-      <img
-        className="home_header_info_icon_telegram"
-        src={telegramIcon}
-        alt="telegram"
-      />
+      <div style={{ margin: 10, width: 150 }}>
+        <span className="home_header_info_progress">{`Ваш прогресс: ${progress}%`}</span>
+        <Line strokeWidth="5" percent={progress} strokeColor="#e4e3ef" />
+      </div>
     </header>
   );
 };

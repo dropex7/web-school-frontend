@@ -51,9 +51,6 @@ export const HomeContentLesson = (props) => {
         setIsDislikeVisivle(false);
       }, 2000);
     }
-    if(i === tasks.length - 1){
-      //вызов функции родителя
-    }
   };
   if (!tasks) {
     return <div>Loading...</div>;
@@ -66,7 +63,7 @@ export const HomeContentLesson = (props) => {
             width="660"
             height="415"
             src={props.youtube}
-            frameborder="0"
+            frameBorder="0"
           ></iframe>
         </div>
         <div

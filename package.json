@@ -9,6 +9,7 @@
     "antd": "^4.9.4",
     "eslint-config-react-app": "^6.0.0",
     "node-fetch": "^2.6.1",
+    "rc-progress": "^3.1.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",

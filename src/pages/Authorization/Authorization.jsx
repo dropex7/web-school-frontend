@@ -22,7 +22,9 @@ export default function Authorization() {
           }
           setLoading(false);
           console.log(data.userID);
-          window.location.replace("http://localhost:3000/home");
+          window.location.replace(
+            `http://localhost:3000/home?id=${data.userID}`
+          );
         })
         .catch((error) => {
           message.error(error.message);

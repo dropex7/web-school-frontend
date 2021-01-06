@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
 import { HomeContentLesson } from "./HomeContentLesson/HomeContentLesson";
 import "./HomeContent.css";
 
-export const HomeContent = (props) => {
+export const HomeContent = ({ courses, addNewCourse }) => {
   const [isSelect, setIsSelect] = useState(false);
   const [lessonid, setLessonid] = useState(0);
   const [youtubeLink, setYoutubeLink] = useState("");
@@ -16,9 +15,9 @@ export const HomeContent = (props) => {
   if (!isSelect) {
     return (
       <div className="content_course_list">
-        {props.courses.map((course) => {
+        {courses.map((course) => {
           return (
-            <div className="content_course_list_card">
+            <div key={course.lesson_id} className="content_course_list_card">
               <div className="content_course_list_el">
                 <img
                   src={course.preview_link}
@@ -29,9 +28,10 @@ export const HomeContent = (props) => {
                   {course.lesson_name}
                 </span>
                 <button
-                  onClick={() =>
-                    onClickWatch(course.lessonid, course.video_link)
-                  }
+                  onClick={() => {
+                    onClickWatch(course.lesson_id, course.video_link);
+                    addNewCourse(course.lesson_id);
+                  }}
                   className="content_course_list_el_btn"
                 >
                   Смотреть
@@ -51,10 +51,7 @@ export const HomeContent = (props) => {
         >
           Вернуться к списку
         </button>
-        <HomeContentLesson
-          lessonid={lessonid}
-          youtube={youtubeLink}
-        />
+        <HomeContentLesson lessonid={lessonid} youtube={youtubeLink} />
       </div>
     );
   }
