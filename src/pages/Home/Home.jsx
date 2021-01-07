@@ -18,7 +18,7 @@ export const Home = () => {
       return 0;
     };
     load();
-  });
+  }, []);
 
   const addNewCheckedCourse = (id) => {
     if (!checkedCourses.includes(id)) {
