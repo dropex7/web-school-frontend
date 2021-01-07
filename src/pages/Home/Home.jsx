@@ -3,28 +3,28 @@ import { useLocation } from "react-router-dom";
 import { HomeHeader } from "./HomeHeader/HomeHeader";
 import { HomeFooter } from "./HomeFooter/HomeFooter";
 import { HomeContent } from "./HomeContent/HomeContent";
-import { getCourses, getProgress } from "../../DataLoader.js";
+import { getCourses, postCourseId } from "../../DataLoader.js";
 
 export const Home = () => {
   const [courses, setCourses] = useState(null);
-  const [checkedCourses, setCheckedCourses] = useState([]);
   let query = new URLSearchParams(useLocation().search);
+  const [id, setID] = useState(query.get("id"));
+
   useEffect(() => {
     const load = async () => {
       const tempData = await getCourses();
-      const progressData = await getProgress(query.get("id"));
       setCourses(tempData);
-      setCheckedCourses(progressData.progress);
       return 0;
     };
     load();
-  });
+  }, []);
 
-  const addNewCheckedCourse = (id) => {
-    if (!checkedCourses.includes(id)) {
-      setCheckedCourses([...checkedCourses, id]);
-    }
-    console.log(checkedCourses);
+  const addNewCheckedCourse = (courseId) => {
+    // if (!checkedCourses.includes(id)) {
+    //   setCheckedCourses([...checkedCourses, id]);
+    // }
+    postCourseId(id, courseId);
+    // console.log(checkedCourses);
   };
 
   if (!courses) {
@@ -32,7 +32,7 @@ export const Home = () => {
   } else {
     return (
       <div>
-        <HomeHeader progress={(checkedCourses.length / 6) * 100} />
+        <HomeHeader userID={id} />
         <HomeContent
           courses={courses.courses}
           addNewCourse={addNewCheckedCourse}

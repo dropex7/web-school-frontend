@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Line } from "rc-progress";
+import { getProgress } from "../../../DataLoader";
 import rabbitIcon from "../../../assets/icons/rabbit.png";
 import "./HomeHeader.css";
 
-export const HomeHeader = ({ progress }) => {
+export const HomeHeader = ({ userID }) => {
+  const [checkedCourses, setCheckedCourses] = useState([]);
+  useEffect(() => {
+    const load = async () => {
+      const progressData = await getProgress(userID);
+      setCheckedCourses(progressData.progress);
+    };
+    load();
+  }, []);
   return (
     <header className="home_header">
       <div>
@@ -21,8 +30,14 @@ export const HomeHeader = ({ progress }) => {
         <span className="home_header_info_name">Следуй за белым кроликом</span>
       </div>
       <div style={{ margin: 10, width: 150 }}>
-        <span className="home_header_info_progress">{`Ваш прогресс: ${progress}%`}</span>
-        <Line strokeWidth="5" percent={progress} strokeColor="#e4e3ef" />
+        <span className="home_header_info_progress">{`Ваш прогресс: ${
+          (checkedCourses.length / 6) * 100
+        }%`}</span>
+        <Line
+          strokeWidth="5"
+          percent={(checkedCourses.length / 6) * 100}
+          strokeColor="#e4e3ef"
+        />
       </div>
     </header>
   );

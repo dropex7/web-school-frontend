@@ -27,7 +27,7 @@ export const HomeContentLesson = (props) => {
       setRight(tempTasks.tasks[i].right_answer);
     };
     load();
-  });
+  }, []);
 
   const handleChangeTest = (event) => {
     setUserAns(event.target.value);
