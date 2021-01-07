@@ -10,7 +10,7 @@ export const HomeHeader = ({ userID }) => {
   useEffect(() => {
     const load = async () => {
       const progressData = await getProgress(userID);
-      setCheckedCourses(progressData.progress);
+      setCheckedCourses(progressData.progress[0] ? progressData.progress[0].finished_lessons : []);
     };
     load();
   }, []);
@@ -30,9 +30,8 @@ export const HomeHeader = ({ userID }) => {
         <span className="home_header_info_name">Следуй за белым кроликом</span>
       </div>
       <div style={{ margin: 10, width: 150 }}>
-        <span className="home_header_info_progress">{`Ваш прогресс: ${
-          (checkedCourses.length / 6) * 100
-        }%`}</span>
+        <span className="home_header_info_progress">{`Ваш прогресс: ${Math.floor((checkedCourses.length / 6) * 100)
+          }%`}</span>
         <Line
           strokeWidth="5"
           percent={(checkedCourses.length / 6) * 100}

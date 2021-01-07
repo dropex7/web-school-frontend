@@ -20,11 +20,7 @@ export const Home = () => {
   }, []);
 
   const addNewCheckedCourse = (courseId) => {
-    // if (!checkedCourses.includes(id)) {
-    //   setCheckedCourses([...checkedCourses, id]);
-    // }
     postCourseId(id, courseId);
-    // console.log(checkedCourses);
   };
 
   if (!courses) {
